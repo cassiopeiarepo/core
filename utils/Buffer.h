@@ -48,10 +48,6 @@ class Buffer : public Stream {
 		int tell() const;
 		int flush() const;
 		
-		// decode buffer
-		int decode(const char *src) const;
-		const StreamString<> encode() const;
-		
 		// stream status
 		virtual int isOpened() const;
 		

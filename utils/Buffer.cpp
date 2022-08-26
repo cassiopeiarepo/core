@@ -128,62 +128,6 @@ int Buffer::flush() const {
 
 /*
  */
-int Buffer::decode(const char *src) const {
-	int size = (int)strlen(src);
-	clear();
-	allocate(size);
-	unsigned char *d = data->data;
-	const unsigned char *s = (const unsigned char*)src;
-	static const char base64_values[] = {
-		-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1,
-		-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, -1, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1,
-		-1,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1,
-		-1, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, -1, -1, -1, -1, -1,
-	};
-	while(*s) {
-		*d++ = ((base64_values[s[0]] << 2) & 0xfc) | ((base64_values[s[1]] >> 4) & 0x03);
-		if(s[2] == '=') break;
-		*d++ = ((base64_values[s[1]] & 0x0f) << 4) | ((base64_values[s[2]] >> 2) & 0x0f);
-		if(s[3] == '=') break;
-		*d++ = ((base64_values[s[2]] & 0x03) << 6) | (base64_values[s[3]] & 0x3f);
-		s += 4;
-	}
-	data->size = (int)(d - data->data);
-	return (data->size > 0);
-}
-
-const StreamString<> Buffer::encode() const {
-	StreamString<> ret;
-	int size = data->size;
-	const unsigned char *s = data->data;
-	static const char base64_chars[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	while(size > 0) {
-		if(size >= 3) {
-			ret.append(base64_chars[(s[0] >> 2) & 0x3f]);
-			ret.append(base64_chars[((s[0] & 0x03) << 4) | ((s[1] >> 4) & 0x0f)]);
-			ret.append(base64_chars[((s[1] & 0x0f) << 2) | ((s[2] >> 6) & 0x03)]);
-			ret.append(base64_chars[(s[2]) & 0x3f]);
-			size -= 3;
-			s += 3;
-		} else if(size == 2) {
-			ret.append(base64_chars[(s[0] >> 2) & 0x3f]);
-			ret.append(base64_chars[((s[0] & 0x03) << 4) | ((s[1] >> 4) & 0x0f)]);
-			ret.append(base64_chars[((s[1] & 0x0f) << 2)]);
-			ret.append('=');
-			break;
-		} else {
-			ret.append(base64_chars[(s[0] >> 2) & 0x3f]);
-			ret.append(base64_chars[(s[0] & 0x03) << 4]);
-			ret.append('=');
-			ret.append('=');
-			break;
-		}
-	}
-	return ret;
-}
-
-/*
- */
 int Buffer::isOpened() const {
 	return 1;
 }
