@@ -19,37 +19,37 @@
 #ifndef __SINGLETON_H__
 #define __SINGLETON_H__
 
-#include "Core/Types/Base.h"
+#include "Base.h"
 
 /*
  */
 template <class Type> class Singleton {
-		
+
 	/*
 	protected:
-		
+
 		Singleton() {
 			assert(object == 0 && "Singleton::Singleton(): object is not a NULL");
 			object = static_cast<Type*>(this);
 		}
 		~Singleton() { object = 0; }
 	*/
-	public:
-		
-		static INLINE Type *get() {
-			if (object == NULL)
-				object = new Type();
-			return object;
-		}
-		/*
-		static INLINE Type &instance() {
-			assert(object != 0 && "Singleton::instance(): object is NULL");
-			return *object;
-		}
-		*/
-	private:
-		
-		static Type *object;
+public:
+
+	static INLINE Type* get() {
+		if (object == NULL)
+			object = new Type();
+		return object;
+	}
+	/*
+	static INLINE Type &instance() {
+		assert(object != 0 && "Singleton::instance(): object is NULL");
+		return *object;
+	}
+	*/
+private:
+
+	static Type* object;
 };
 
 /*
