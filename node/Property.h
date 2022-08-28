@@ -1,10 +1,10 @@
 #ifndef PROPERTY_H
 #define PROPERTY_H
 
-#include "Core/Types/Str.h"
+#include "core/types/Str.h"
 //#include "Core/Types/Node.h"
 
-#include "Core/Types/PropertyType.h"
+#include "core/node/PropertyType.h"
 
 class Node;
 

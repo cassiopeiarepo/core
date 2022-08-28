@@ -1,4 +1,4 @@
-#include "Core/Types/Node.h"
+#include "core/node/Node.h"
 //#include "Core/Types/PropertySet.h"
 
 /******************************************************************************\
@@ -28,7 +28,7 @@ Node::~Node() {
 /*
  */
 void Node::setName(const char *n) {
-    name = calculateName(String(n));
+	name = n;//calculateName(String(n));
 }
 
 const char *Node::getName() const {
@@ -66,7 +66,7 @@ void Node::setParent(Node *node) {
 	if(parent) parent->removeChild(this);
 	if(node == NULL) return;
 	parent = node;
-	name = calculateName(name);
+	//name = calculateName(name);
 	parent->childs.append(this);
 }
 
@@ -78,7 +78,7 @@ void Node::addChild(Node *node) {
 	if(childs.find(node) != childs.end()) return;
 	if(node->parent) node->parent->removeChild(node);
 	node->parent = this;
-	node->name = node->calculateName(node->name);
+	//node->name = node->calculateName(node->name);
 	childs.append(node);
 }
 

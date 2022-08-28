@@ -1,4 +1,4 @@
-#include "Core/Types/NodeTypeList.h"
+#include "core/node/NodeTypeList.h"
 
 Node* NodeTypeList::createNode(const char* nodeTypeName, Node* parent) {
 

@@ -19,7 +19,7 @@
 #ifndef __SINGLETON_H__
 #define __SINGLETON_H__
 
-#include "Base.h"
+#include "core/types/Base.h"
 
 /*
  */

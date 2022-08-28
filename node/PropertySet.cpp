@@ -1,6 +1,6 @@
-#include "Core/Types/PropertySet.h"
-#include "Core/Types/Str.h"
-#include "Core/Types/Node.h"
+#include "core/node/PropertySet.h"
+#include "core/types/Str.h"
+#include "core/node/Node.h"
 
 PropertySet::PropertySet(Node* owner) : owner(owner) {
 

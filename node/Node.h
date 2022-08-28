@@ -1,10 +1,10 @@
 #ifndef __NODE_H__
 #define __NODE_H__
 
-#include "Str.h"
-#include "Vector.h"
-#include "Core/Types/PropertySet.h"
-#include "Core/Types/NodeTypeList.h"
+#include "core/types/Str.h"
+#include "core/types/Vector.h"
+#include "core/node/PropertySet.h"
+#include "core/node/NodeTypeList.h"
 
 
 /*

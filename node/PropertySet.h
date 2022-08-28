@@ -1,8 +1,8 @@
 #ifndef PROPERTYSET_H
 #define PROPERTYSET_H
 
-#include "Core/Types/Vector.h"
-#include "Core/Types/Property.h"
+#include "core/types/Vector.h"
+#include "core/node/Property.h"
 
 class Node;
 

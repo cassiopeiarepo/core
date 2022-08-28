@@ -1,9 +1,9 @@
 #ifndef __NODE_TYPE_H__
 #define __NODE_TYPE_H__
 
-#include "Core/Types/Str.h"
-#include "Core/Types/Vector.h"
-#include "Core/Types/PropertyType.h"
+#include "core/types/Str.h"
+#include "core/types/Vector.h"
+#include "core/node/PropertyType.h"
 
 class NodeTypeUtils;
 class Node;

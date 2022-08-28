@@ -1,5 +1,5 @@
-#include "Core/Types/NodeFactory.h"
-#include "Core/World/TestNode.h"
+#include "core/node/NodeFactory.h"
+//#include "Core/World/TestNode.h"
 
 void NodeFactory::addNodeType(const char* node_type) {
 	String n_type(node_type);
@@ -19,7 +19,7 @@ Node* NodeFactory::createNode(const char* node_type) {
 	String n_type(node_type);
 
 	if (n_type == "Test::TestNode") {
-		return new TestNode();
+		//return new TestNode();
 	}
 
 	return NULL;

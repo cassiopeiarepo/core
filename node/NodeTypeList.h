@@ -1,12 +1,12 @@
 #ifndef __NODE_TYPE_LIST_H__
 #define __NODE_TYPE_LIST_H__
 
-#include "Core/Utils/Singleton.h"
-#include "Core/Types/Str.h"
-#include "Core/Types/Vector.h"
+#include "core/Utils/Singleton.h"
+#include "core/types/Str.h"
+#include "core/types/Vector.h"
 
-#include "Core/Types/NodeType.h"
-#include "Core/Types/Node.h"
+#include "core/node/NodeType.h"
+#include "core/node/Node.h"
 
 class NodeTypeList {
 
